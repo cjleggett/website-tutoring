@@ -1,0 +1,21 @@
+{% extends "intro_app/layout.html" %}
+
+
+{% block body %}
+
+<h1>My TODO List:</h1>
+
+<form action="{% url 'add_task' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Add Task!">
+</form>
+
+<ul>
+    {% for item in items %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
